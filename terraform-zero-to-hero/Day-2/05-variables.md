@@ -1,57 +1,57 @@
-# Variables
+# Variables:
 
-Input and output variables in Terraform are essential for parameterizing and sharing values within your Terraform configurations and modules. They allow you to make your configurations more dynamic, reusable, and flexible.
+* Input & output variables in Terraform are essential for parameterizing and sharing values within our Terraform configurations and modules. They allow us to make our configurations more dynamic, reusable, and flexible.
 
-## Input Variables
+## Input Variables:
 
-Input variables are used to parameterize your Terraform configurations. They allow you to pass values into your modules or configurations from the outside. Input variables can be defined within a module or at the root level of your configuration. Here's how you define an input variable:
+* Input variables are used to parameterize our Terraform configurations. They allow us to pass values into our modules or configurations from the outside. Input variables can be defined within a module or at the root level of our configuration. Here's how we define an input variable:
 
 ```hcl
-variable "example_var" {
-  description = "An example input variable"
+variable "name" {
+  description = "Name of an EC2 Instnace"
   type        = string
-  default     = "default_value"
+  default     = "webserver"
 }
 ```
 
 In this example:
 
-- `variable` is used to declare an input variable named `example_var`.
+- `variable` is used to declare an input variable named `name`.
 - `description` provides a human-readable description of the variable.
 - `type` specifies the data type of the variable (e.g., `string`, `number`, `list`, `map`, etc.).
 - `default` provides a default value for the variable, which is optional.
 
-You can then use the input variable within your module or configuration like this:
+We can then use the input variable within our module or configuration like this:
 
 ```hcl
-resource "example_resource" "example" {
-  name = var.example_var
+resource "aws_instance" "abc" {
+  name = var.name
   # other resource configurations
 }
 ```
 
-You reference the input variable using `var.example_var`.
+* We reference the input variable using `var.example_var`.
 
 ## Output Variables
 
-Output variables allow you to expose values from your module or configuration, making them available for use in other parts of your Terraform setup. Here's how you define an output variable:
+* Output variables allows us to expose values from our module or configuration, making them available for use in other parts of our Terraform setup. Here's how we define an output variable:
 
 ```hcl
-output "example_output" {
-  description = "An example output variable"
-  value       = resource.example_resource.example.id
+output "instance_id" {
+  description = "Output the Instance ID of EC2 Instance"
+  value       = resource.aws_instance.instance_id
 }
 ```
 
-In this example:
+* In this example:
 
-- `output` is used to declare an output variable named `example_output`.
+- `output` is used to declare an output variable named `instance_id`.
 - `description` provides a description of the output variable.
-- `value` specifies the value that you want to expose as an output variable. This value can be a resource attribute, a computed value, or any other expression.
+- `value` specifies the value that we want to expose as an output variable. This value can be a resource attribute, a computed value, or any other expression.
 
-You can reference output variables in the root module or in other modules by using the syntax `module.module_name.output_name`, where `module_name` is the name of the module containing the output variable.
+* We can reference output variables in the root module or in other modules by using the syntax `module.module_name.output_name`, where `module_name` is the name of the module containing the output variable.
 
-For example, if you have an output variable named `example_output` in a module called `example_module`, you can access it in the root module like this:
+* For example, if we have an output variable named `example_output` in a module called `example_module`, we can access it in the root module like this:
 
 ```hcl
 output "root_output" {
@@ -59,4 +59,4 @@ output "root_output" {
 }
 ```
 
-This allows you to share data and values between different parts of your Terraform configuration and create more modular and maintainable infrastructure-as-code setups.
+* This allows us to share data and values between different parts of our Terraform configuration and create more modular and maintainable infrastructure-as-code setups.

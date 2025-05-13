@@ -33,7 +33,7 @@ EOF>>
 
 > Variables are used to parameterize the things, means they can be used as parameters to pass values to our project. In Terraform there are typically 2 Types of variables:-
 
-1. Input Variables: Let's say we want to pass some information to terraform, then it is called as input variables. If we want to parameterize any output in our terraform configuration then we can pass the values using variables. Input variables in Terraform are used to parameterize configurations, making modules reusable and configurable.
+1. Input Variables: Let's say we want to pass some information to terraform, then these are called as input variables. If we want to parameterize any output in our terraform configuration then we can pass the values using variables. Input variables in Terraform are used to parameterize configurations, making modules reusable and configurable.
 
 
-2. Output Variables: If we want Terraform to print any value in the output. Output variables in Terraform are used to display resource attributes (values) for e.g Public IP of Server after execution & to pass data between modules.
+2. Output Variables: If we want Terraform to print any value in the output then we can use Output variables. Output variables in Terraform are used to display resource attributes (values) for e.g Public IP of Server after execution & to pass data between modules.

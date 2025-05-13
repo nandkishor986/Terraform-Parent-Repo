@@ -13,13 +13,13 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_instance" "example" {
+resource "aws_instance" "webserver" {
   ami = "ami-0123456789abcdef0"
   instance_type = "t2.micro"
   provider = aws.us-east-1
 }
 
-resource "aws_instance" "example2" {
+resource "aws_instance" "devserver" {
   ami = "ami-0123456789abcdef0"
   instance_type = "t2.micro"
   provider = aws.us-west-2

@@ -1,6 +1,6 @@
 # Provider Configuration
 
-The required_providers block in Terraform is used to declare and specify the required provider configurations for your Terraform module or configuration. It allows you to specify the provider name, source, and version constraints.
+> The ``required_providers`` block in Terraform is used to declare & specify the required provider configurations for our Terraform module or configuration. It allows us to specify the provider name, source & version constraints.
 
 ```
 terraform {
